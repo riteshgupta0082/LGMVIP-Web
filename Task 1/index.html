@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/ngAlertify.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>To - Do List</h1>
+        <p>
+            <i class="fa fa-magic"></i> 
+            A basic <strong>to-do list</strong> WebApp by <b><i>Ritesh Gupta</i></b>
+        </p>
+    </header>
+
+    <div id="container" ng-controller="main">
+
+        <div class="todo-header clearfix js-toggler" data-target="todo-list">
+            <div class="todo-count">
+                <span>#<strong>{{todos.length}}</strong></span>
+            </div>
+            <h2>
+                <i class="fa fa-navicon"></i> My List
+            </h2>
+        </div>
+    
+        <div class="todo-list js-todo-list">
+            <div class="inner">
+                <div class="item" ng-repeat="todo in todos">
+                    <div class="inner done-{{todo.done}}">
+                        <div class="status">
+                            <input type="checkbox" ng-model="todo.done" />
+                        </div>
+                        <div class="text">
+                            <p>{{todo.text}}</p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="options">
+                            <span ng-click="edit(todo)" class="btn-edit">
+                                <i class="fa fa-edit"></i> Edit
+                            </span>
+                            <span ng-click="remove(todo)" class="btn-remove">
+                                <i class="fa fa-remove"></i> Remove
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="todo-form">
+            <form ng-submit="add()">
+                <div class="input-group">
+                    <input type="text" ng-model="todoInput" size="25" placeholder="Add new item.." />
+                    <button>
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="dev-notes js-dev-notes hidden">
+        <h3># Dev Notes</h3>
+        <i class="fa fa-tick"></i> No Issues were reported.
+    </div>
+    <footer>
+            <a href="https://github.com/riteshgupta0082" target="_blank">
+                <i class="fa fa-github big"></i>
+            </a>
+            |
+            <a href="https://www.linkedin.com/in/ritesh-gupta-499b1b1b7" target="_blank">
+                <i class="fa fa-linkedin big"></i>
+            </a>
+            |
+            <a href="https://wa.me/qr/437FN7VLNS3QH1" target="_blank">
+                <i class="fa fa-whatsapp big"></i>
+            </a>
+            |
+             <a href="https://www.facebook.com/profile.php?id=100029750962060" target="_blank">
+                <i class="fa fa-facebook big"></i>
+            </a>
+            |
+            <a href="https://www.instagram.com/invites/contact/?i=1vtvcj66xj1bk&utm_content=6770o9y" target="_blank">
+                <i class="fa fa-instagram big"></i>
+            </a>
+            <br /><br />
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
